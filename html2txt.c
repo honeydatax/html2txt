@@ -9,9 +9,11 @@ int main(int argc, char *argv[]){
 	char *ccc;
 	char *cccc;
 	FILE *f;
+	int style=0;
 	int r=0;
 		f=fopen("/dev/stdin","r");
 		if (f!=NULL){
+			style=0;
 			while(feof(f)!=1){
 				strcpy(c,"");
 				fgets(c,2070,f);
@@ -27,7 +29,11 @@ int main(int argc, char *argv[]){
 						cccc=ccc;
 						r=1;
 					}
-						printf("%s",cccc);
+						if(style==1)printf("%s",cccc);
+						cc=strstr(ccc,"body");
+						if(cc-ccc<3)style=1;
+						cc=strstr(ccc,"BODY");
+						if(cc-ccc<3)style=1;
 						cc=strstr(ccc,">");
 						if(cc!=NULL){
 							ccc=cc+1;
