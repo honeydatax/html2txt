@@ -20,20 +20,21 @@ int main(int argc, char *argv[]){
 				while(r!=1){
 					cc=strstr(ccc,"<");
 					if(cc!=NULL){
-						cccc=cc+1;
+						cccc=ccc;
+						ccc=cc+1;
 						cc[0]=0;
 					}else{
+						cccc=ccc;
 						r=1;
 					}
-						printf ("%s",ccc);
-						cc=strstr(cccc,">");
+						printf("%s",cccc);
+						cc=strstr(ccc,">");
 						if(cc!=NULL){
-							cccc=cc+1;
-							cc[0]=0;
+							ccc=cc+1;
+							r=0;
 						}else{
 							r=1;
 						}
-						ccc=cccc;
 				}
 			}
 		}
